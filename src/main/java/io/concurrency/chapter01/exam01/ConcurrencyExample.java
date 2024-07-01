@@ -7,9 +7,9 @@ public class ConcurrencyExample {
     public static void main(String[] args) {
 
         //CPU 코어 수의 두 배만큼의 크기를 할당 (내 컴퓨터는 코어 16개)
-        //int cpuCores = Runtime.getRuntime().availableProcessors() * 2;
+        int cpuCores = Runtime.getRuntime().availableProcessors() * 2;
 
-        int cpuCores = 17;
+        //int cpuCores = 17;
 
         // CPU 개수를 초과하는 데이터를 생성
         List<Integer> data = new ArrayList<>();

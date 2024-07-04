@@ -12,5 +12,12 @@ public class AnonymousRunnableClassExample {
 
         thread.start();
 
+        Thread ywThread = new Thread(new Runnable() {
+            public void run() {
+                System.out.println(Thread.currentThread().getName() + " : yw스레드 실행중..");
+            }
+        });
+        ywThread.start();
+
     }
 }

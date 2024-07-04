@@ -11,5 +11,18 @@ public class AnonymousThreadClassExample {
         };
 
         thread.start();
+
+
+        Thread ywThread = new Thread() {
+            public void run() {
+                System.out.println(Thread.currentThread().getName() + " : yw 스레드 실행중 ..");
+            }
+        };
+
+        ywThread.start();
+
     }
+
+
+
 }

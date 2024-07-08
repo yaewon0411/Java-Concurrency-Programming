@@ -12,6 +12,6 @@ public class LoopSleepExample {
                 throw new RuntimeException(e);
             }
         }
-
+        System.out.println("Thread.currentThread().getState() = " + Thread.currentThread().getState());
     }
 }

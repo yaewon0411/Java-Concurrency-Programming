@@ -21,6 +21,7 @@ public class BlockedStateThreadExample {
         thread2.start();
         Thread.sleep(100); // thread2가 lock을 기다리는 상태로 대기
         System.out.println("스레드 2 상태: " + thread2.getState()); // BLOCKED
+
     }
 
 }

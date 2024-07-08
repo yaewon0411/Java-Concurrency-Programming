@@ -72,7 +72,7 @@ public class ThreadLifecycleExample {
          * TERMINATED 상태
          */
         newThread.start();
-        newThread.join();
+        newThread.join(); //메인 스레드 끝나면 종료
 
         System.out.println("스레드 실행: " + runnableThread.getState());
         System.out.println("스레드 지정된 시간 대기: " + timedWaitingThread.getState());

@@ -1,7 +1,7 @@
-package io.concurrency.chapter03.exam01;
+# InterruptSleepExample
 
-public class InterruptSleepExample {
-    public static void main(String[] args) throws InterruptedException {
+```java
+public static void main(String[] args) throws InterruptedException {
 
         Thread sleepingThread = new Thread(() -> {
             try {
@@ -24,4 +24,6 @@ public class InterruptSleepExample {
         //메인 스레드가 sleepingThread에 대해 인터럽트 발생!!
         sleepingThread.interrupt();
     }
-}
+```
+- 메인 함수 내에서 실행된 Thread.sleep()은 메인 스레드를 일시 중지
+- 반면 스레드 객체 내에서 람다 표현식이나 익명 클래스를 통해 생성된 별도의 실행 블럭 내에서 sleep()을 걸면, 그 실행 블럭을 수행하는 스레드가 일시 중지

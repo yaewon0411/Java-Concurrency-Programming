@@ -2,17 +2,20 @@ package io.concurrency.chapter02.exam03;
 
 public class TimedWaitingStateThreadExample {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException{
+
         Thread thread = new Thread(() -> {
             try {
-                Thread.sleep(10000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         });
+
         thread.start();
         Thread.sleep(100);
-        System.out.println("스레드 상태: " + thread.getState()); // TIMED_WAITING
+        System.out.println("스레드 상태 : "+thread.getState());
+
     }
 
 }

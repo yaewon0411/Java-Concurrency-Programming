@@ -7,7 +7,7 @@ public class TerminatedStateThreadExample {
             System.out.println("스레드 실행 중");
         });
         thread.start();
-        thread.join(); // 스레드가 종료될 때까지 기다림
+        thread.join(); // 메인 스레드가 종료될 때까지 기다림
         System.out.println("스레드 상태: " + thread.getState()); // TERMINATED
     }
 

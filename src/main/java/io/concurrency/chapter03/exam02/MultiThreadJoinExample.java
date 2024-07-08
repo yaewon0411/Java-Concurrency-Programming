@@ -31,6 +31,7 @@ public class MultiThreadJoinExample {
         thread1.join();
         thread2.join();
 
+
         System.out.println("메인 스레드가 계속 진행합니다");
 
     }

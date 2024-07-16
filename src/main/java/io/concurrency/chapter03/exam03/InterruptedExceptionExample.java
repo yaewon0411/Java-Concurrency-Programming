@@ -2,7 +2,8 @@ package io.concurrency.chapter03.exam03;
 
 public class InterruptedExceptionExample {
     public static void main(String[] args) throws InterruptedException {
-        Thread thread = new Thread(() -> {
+
+        Thread thread1 = new Thread(() -> {
             try {
                 System.out.println("인터럽트 상태 1: " + Thread.currentThread().isInterrupted());
                 Thread.sleep(5000);
@@ -14,7 +15,7 @@ public class InterruptedExceptionExample {
             }
         });
 
-        thread.start();
+        thread1.start();
 
         try {
             Thread.sleep(2000);
@@ -22,8 +23,8 @@ public class InterruptedExceptionExample {
             e.printStackTrace();
         }
 
-        thread.interrupt();
-        thread.join();
-        System.out.println("인터럽트 상태 3: " + thread.isInterrupted());
+        thread1.interrupt();
+        thread1.join(); //메인 스레드가 thread1에 조인. 즉 thread1의 작업이 끝날 때까지 대기
+        System.out.println("인터럽트 상태 3: " + thread1.isInterrupted());
     }
 }

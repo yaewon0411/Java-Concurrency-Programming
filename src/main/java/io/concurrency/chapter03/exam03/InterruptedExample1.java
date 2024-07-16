@@ -7,16 +7,17 @@ public class InterruptedExample1 {
                 System.out.println("스레드가 작동 중입니다.");
             }
             System.out.println("스레드가 인터럽트 되었습니다.");
+            //인터럽트 상태를 초기화 시킴
             System.out.println("인터럽트 상태: " + Thread.currentThread().isInterrupted());
         });
         thread.start();
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        thread.interrupt();
+        thread.interrupt(); //메인스레드에서 thread에게 인터럽트 발생
     }
 }

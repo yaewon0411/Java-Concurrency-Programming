@@ -18,8 +18,8 @@ public class InterruptExample {
         Thread.sleep(1000);
         thread1.start();
 
-        thread1.join();
-        thread2.join();
+        thread1.join(); //메인 스레드는 thread1 작업이 끝날 때 까지 대기
+        thread2.join(); //메인 스레드는 thread2 작업이 끝날 때 까지 대기
 
         System.out.println("모든 스레드 작업 완료");
     }

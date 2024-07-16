@@ -2,6 +2,8 @@ package io.concurrency.chapter03.exam03;
 
 public class InterruptedExample3 {
     public static void main(String[] args) {
+
+
         Thread thread = new Thread(() -> {
             while (true) {
                 System.out.println("스레드 작동 중");

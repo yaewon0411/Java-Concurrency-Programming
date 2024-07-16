@@ -13,6 +13,7 @@ public class InterruptedExample2 {
             for (int i = 0; i < 5; i++) {
                 System.out.println("스레드 1 작동 중");
                 if (i == 2) {
+                    System.out.println("i = " + i);
                     thread2.interrupt();
                 }
                 try {

@@ -8,13 +8,13 @@ public class ThreadPriorityExample {
         CountingThread normThread = new CountingThread("우선 순위가 기본인 스레드", Thread.NORM_PRIORITY);
         CountingThread minThread = new CountingThread("우선 순위가 낮은 스레드", Thread.MIN_PRIORITY);
 
-        maxThread.start();
         normThread.start();
+        maxThread.start();
         minThread.start();
 
-        maxThread.join();
-        normThread.join();
-        minThread.join();
+        normThread.join();//메인 스레드가 normThread가 끝날 때까지 대기
+        minThread.join();//메인 스레드가 minThread가 끝날 때까지 대기
+        maxThread.join(); //메인 스레드가 maxThread가 끝날 때까지 대기
 
         System.out.println("작업 완료");
 

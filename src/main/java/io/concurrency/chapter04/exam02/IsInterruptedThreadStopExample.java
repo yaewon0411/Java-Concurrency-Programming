@@ -25,7 +25,7 @@ public class IsInterruptedThreadStopExample {
         worker.start();
         stopper.start();
 
-        worker.join();
+        worker.join();// 메인 스레드가 이 스레드의 작업이 완전히 끝났을 때 종료되도록 동기화하려고 사용
         stopper.join();
     }
 }

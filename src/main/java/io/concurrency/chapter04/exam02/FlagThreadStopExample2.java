@@ -3,10 +3,12 @@ package io.concurrency.chapter04.exam02;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class FlagThreadStopExample2 {
+
+    //메인 메모리에서 값을 가져오도록 강제함
     private AtomicBoolean running = new AtomicBoolean(true);
 //    private boolean running = true;
 
-    public void volatileTest() {
+    public void AtomicTest() {
         new Thread(() -> {
             int count = 0;
             while (running.get()) {
@@ -26,6 +28,6 @@ public class FlagThreadStopExample2 {
     }
 
     public static void main(String[] args) {
-        new FlagThreadStopExample2().volatileTest();
+        new FlagThreadStopExample2().AtomicTest();
     }
 }

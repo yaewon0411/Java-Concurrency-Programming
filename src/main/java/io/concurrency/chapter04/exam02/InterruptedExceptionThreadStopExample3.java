@@ -15,7 +15,7 @@ public class InterruptedExceptionThreadStopExample3 {
                 // 이 때 interrupt 상태는 초기화 된다.
                 // 그렇기 때문에 다시 interrupt 를 호출해 줘야 한다.
                 System.out.println("인트럽트 상태 2 : " + Thread.currentThread().isInterrupted());
-                Thread.currentThread().interrupt();
+                //Thread.currentThread().interrupt();
             }
             System.out.println("작업 스레드가 중단되었습니다.");
             System.out.println("인트럽트 상태 3 : " + Thread.currentThread().isInterrupted());

@@ -1,6 +1,7 @@
 package io.concurrency.chapter04.exam03;
 
 public class DaemonThreadLifeCycleExample {
+
     public static void main(String[] args) throws InterruptedException {
         Thread userThread = new Thread(() -> {
             try {
@@ -22,7 +23,7 @@ public class DaemonThreadLifeCycleExample {
             }
         });
 
-        daemonThread.setDaemon(true);
+        daemonThread.setDaemon(true); //반드시 스레드 실행 전에 데몬으로 지정해야 함
         daemonThread.setDaemon(false);
 
         userThread.start();

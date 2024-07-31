@@ -1,6 +1,31 @@
 package io.concurrency.chapter04.exam03;
 
 public class UserAndDaemonInheritanceExample {
+
+    public void test(){
+
+
+        new Thread(() ->{
+            new Thread(() -> {
+                System.out.println("사용자 스레드의 자식 스레드 데몬 상태: " + Thread.currentThread().isDaemon());
+            }).start();
+            System.out.println("사용자 스레드의 데몬 상태: "+Thread.currentThread().isDaemon());
+
+        }).start();
+
+
+        Thread daemonThread = new Thread(() -> {
+            new Thread(() -> {
+                System.out.println("데몬 스레드의 자식 스레드 데몬 상태: " + Thread.currentThread().isDaemon());
+            }).start();
+            System.out.println("데몬 스레드의 데몬 상태: " + Thread.currentThread().isDaemon());
+
+        });
+
+        daemonThread.setDaemon(true);
+        daemonThread.start();
+
+    }
     public static void main(String[] args) {
 
         // 사용자 스레드 생성

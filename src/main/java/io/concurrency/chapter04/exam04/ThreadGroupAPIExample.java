@@ -5,6 +5,7 @@ public class ThreadGroupAPIExample {
 
         ThreadGroup topGroup = new ThreadGroup("상위그룹");
 
+
         // 상위 스레드 그룹에 속하는 스레드들 생성
         Thread[] topThreads = new Thread[5];
         for (int i = 1; i <= 5; i++) {

@@ -1,6 +1,7 @@
 package io.concurrency.chapter04.exam04;
 
 public class    NestedThreadGroupExample {
+
     public static void main(String[] args) throws InterruptedException {
 
         // 최상위 스레드 그룹 생성
@@ -9,18 +10,27 @@ public class    NestedThreadGroupExample {
         // 최상위 스레드 그룹 내부에 하위 스레드 그룹 생성
         ThreadGroup subGroup = new ThreadGroup(topGroup, "하위 스레드 그룹");
 
+        //하위 스레드 그룹 내부에 최하위 스레드 그룹 생성
+        ThreadGroup buttomGroup = new ThreadGroup(subGroup, "최하위 스레드 그룹");
+
         // 최상위 스레드 그룹에 속한 스레드 생성
         Thread topGroupThread = new Thread(topGroup, new MyRunnable(), "TopGroupThread");
 
         // 하위 스레드 그룹에 속한 스레드 생성
         Thread subGroupThread = new Thread(subGroup, new MyRunnable(), "SubGroupThread");
 
+        //최하위 스레드 그룹에 속한 스레드 생성
+        Thread buttomGroupThread = new Thread(buttomGroup, new MyRunnable(), "ButtomGroupThread");
+
         // 그룹 정보 출력
         System.out.println(topGroupThread.getName() + " 는 " + topGroupThread.getThreadGroup().getName() + "에 속해 있습니다.");
         System.out.println(subGroupThread.getName() + " 는 " + subGroupThread.getThreadGroup().getName() + "에 속해 있습니다.");
+        System.out.println(buttomGroupThread.getName() + " 는 " + buttomGroupThread.getThreadGroup().getName() + "에 속해 있습니다.");
+
 
         topGroupThread.start();
         subGroupThread.start();
+        buttomGroupThread.start();
 
         try {
             Thread.sleep(1000);

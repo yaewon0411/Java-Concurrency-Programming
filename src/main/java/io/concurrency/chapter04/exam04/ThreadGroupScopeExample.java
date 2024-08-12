@@ -6,6 +6,7 @@ public class ThreadGroupScopeExample {
         ThreadGroup topGroup = new ThreadGroup("상위그룹");
         ThreadGroup subGroup = new ThreadGroup(topGroup, "하위그룹");
 
+
         // 상위 그룹 스레드에서 하위 그룹의 최대 우선 순위를 변경
         Thread topGroupThread = new Thread(topGroup, () -> {
             System.out.println("상위 그룹 스레드에서 하위 그룹의 최대 우선 순위 변경 전: " + subGroup.getMaxPriority());
@@ -26,15 +27,19 @@ public class ThreadGroupScopeExample {
         topGroupThread.join();
         subGroupThread.join();
 
-        // 이미 생성된 스레드는 변경사항이 적용되지 않는다
+        // 이미 생성된 스레드는 변경사항(우선순위 변경)이 적용되지 않는다
         System.out.println(topGroupThread.getName() + ": " + topGroupThread.getPriority());
         System.out.println(subGroupThread.getName() + ": " + subGroupThread.getPriority());
 
+        //스레드 그룹이 중첩되어서, 부모-자식 관계가 형성되었다면, 부모 그룹의 최대 우선순위 설정 사항이 자식 스레드 그룹에도 적용된다
+        //즉 부모의 우선순위가 4이고, 자식의 우선순위가 7이라면, 부모 스레드그룹에 속한 모든 스레드(당연히 자식 스레드 그룹 포함)들은 우선순위 4를 가진다
         Thread userThread1 = new Thread(topGroup, () -> {}, "유저스레드 1");
         Thread userThread2 = new Thread(subGroup, () -> {}, "유저스레드 2");
 
         userThread1.start();
         userThread2.start();
+
+
 
         userThread1.join();
         userThread2.join();

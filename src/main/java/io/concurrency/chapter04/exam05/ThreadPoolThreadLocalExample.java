@@ -15,7 +15,7 @@ public class ThreadPoolThreadLocalExample {
             threadLocal.set("작업 1의 값");
             System.out.println(Thread.currentThread().getName() + ": " + threadLocal.get());
             // 작업 종료 후 값을 지워야 함
-//            threadLocal.remove();
+            threadLocal.remove();
         });
 
         // 잠시 대기

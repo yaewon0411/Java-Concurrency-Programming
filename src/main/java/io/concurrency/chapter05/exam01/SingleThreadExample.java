@@ -9,7 +9,7 @@ public class SingleThreadExample {
             sum += i;
             try {
                 Thread.sleep(1);
-                throw new RuntimeException("error");
+                throw new RuntimeException("error"); //싱글 스레드니까 에러 터지면 애플리케이션 종료
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

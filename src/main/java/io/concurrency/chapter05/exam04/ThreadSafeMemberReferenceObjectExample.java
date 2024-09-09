@@ -11,6 +11,7 @@ public class ThreadSafeMemberReferenceObjectExample {
         Company company = new Company("Company"); // 스레드에 안전하지 못함, 멤버변수를 공유함
         new Thread(new MyRunnable(company)).start();
         new Thread(new MyRunnable(company)).start();
+
     }
 }
 

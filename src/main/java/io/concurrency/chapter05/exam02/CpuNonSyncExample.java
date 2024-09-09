@@ -25,6 +25,6 @@ public class CpuNonSyncExample {
         thread2.join();
 
         System.out.println("예상 결과: " + (2 * ITERATIONS));
-        System.out.println("실제 결과: " + count);
+        System.out.println("실제 결과: " + count); //CPU가 동기화되지 않은 값을 보게 됨
     }
 }

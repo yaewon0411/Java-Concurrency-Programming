@@ -1,7 +1,7 @@
 package io.concurrency.chapter05.exam03;
 
 public class CriticalSectionExample {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         SharedResource resource = new SharedResource();
 
         Thread t1 = new Thread(resource::increment);

@@ -13,7 +13,7 @@ public class SharedData {
                 sharedValue++;
             }
 
-        } finally {
+        } finally { //for 구문 돌다가 오류날 수 있으므로 반드시 try-finally를 통해 락을 해제해준다
             mutex.release(); // Lock 해제
         }
     }

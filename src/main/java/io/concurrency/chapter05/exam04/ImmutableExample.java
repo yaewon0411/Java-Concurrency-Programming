@@ -26,10 +26,12 @@ public class ImmutableExample  implements Runnable{
 }
 
 //상속 못 함
+//모든 필드 또한 final로 선언함으로써 필드가 변경될 수 있는 여지를 원천 차단함
 final class ImmutablePerson {
     private final String name;
     private final int age;
 
+    //생성과 동시에 값이 할당되며, 수정 못함
     public ImmutablePerson(String name, int age) {
         this.name = name;
         this.age = age;

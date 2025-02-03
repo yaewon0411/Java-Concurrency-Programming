@@ -7,7 +7,7 @@ public class SpinLockVsSynchronized {
     private final Object syncLock = new Object();
     private int count = 0;
 
-    final static int THREAD_COUNT = 5;
+    final static int THREAD_COUNT = 5000; //스레드 숫자를 늘리면 컨텍스트 스위칭 시간이 더 늘어나기 때문에 synchronized보다 spin lock이 더 빠른 경우가 나올 수 있다..
     final int ITERATIONS = 10_000_000;
 
     public void useSpinLock() {

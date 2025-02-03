@@ -15,7 +15,7 @@ public class BinarySemaphore implements CommonSemaphore {
     }
 
     public synchronized void release() {
-        this.signal = 1;
-        this.notify();
+        this.signal = 1; //다른 스레드들이 사용 가능함을 설정
+        this.notify(); // 모든 대기 스레드 중 임의로 선택한 스레드 하나만 깨움.
     }
 }

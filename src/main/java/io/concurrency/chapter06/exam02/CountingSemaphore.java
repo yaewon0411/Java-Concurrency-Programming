@@ -9,19 +9,33 @@ public class CountingSemaphore implements CommonSemaphore {
         this.signal = permits;
     }
 
-    public void acquired() {
-        synchronized (this) {
-            while (this.signal == 0) {
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
+    public synchronized void acquired(){
+        while(this.signal==0){
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
-            this.signal--;
         }
-        System.out.println(Thread.currentThread().getName() + " 락 획득, 현재 세마포어 값: " + signal);
+        this.signal--;
+        System.out.println(Thread.currentThread().getName() + ": 락 획득, 현재 세마포어 값: "+signal);
     }
+
+//    public void acquired() {
+//        synchronized (this) {
+//            while (this.signal == 0) {
+//                try {
+//                    wait();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            this.signal--;
+//        }
+//        System.out.println(Thread.currentThread().getName() + " 락 획득, 현재 세마포어 값: " + signal);
+//    }
+
 
     public synchronized void release() {
         if (this.signal < permits) { // signal 값이 permits 보다 작을 때만 증가
